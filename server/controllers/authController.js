@@ -47,8 +47,9 @@ const handleLogin = async (req, res) => {
         // send cookie + response
         res.cookie('accessToken', token, {
             httpOnly: true,
-            secure: false,                   // since, we are in development phase
-            sameSite: 'strict',
+            secure: true,                   // since, it works for both development phase + prod. phase
+            sameSite: 'none',
+            maxAge: 30 * 24 * 60 * 60 * 1000
         });
         res.status(200).json({message: 'Login Successful.', user});
     } catch(e) {
@@ -78,8 +79,8 @@ const handleGetUserInfo = async (req, res) => {
 const handleLogout = async (req, res) => {
     res.clearCookie('accessToken', {
       httpOnly: true,
-      secure: false,     // ⚠️ Set to true in production (HTTPS)
-      sameSite: 'strict'
+      secure: true,     
+      sameSite: 'none'
     });
   
     return res.status(200).json({ message: 'Logged out successfully.' });
