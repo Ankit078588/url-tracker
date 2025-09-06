@@ -42,3 +42,24 @@ export const AuthProvider = ({children}) => {
         </AuthContext.Provider>
     )
 }
+
+
+
+
+// import { atom, selector } from 'recoil';
+
+// export const userAtom = atom({
+//   key: 'userAtom',
+//   default: null,
+// });
+
+// export const isLoadingAtom = atom({
+//   key: 'isLoadingAtom',
+//   default: true,
+// });
+
+// // Selector — automatically derived from userAtom
+// export const isAuthenticatedSelector = selector({
+//   key: 'isAuthenticatedSelector',
+//   get: ({ get }) => !!get(userAtom),
+// });

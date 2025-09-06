@@ -19,7 +19,7 @@ const Header = () => {
             setUser(null);
             setIsAuthenticated(false);
 
-            setTimeout(() => { navigate('/') }, 0);
+            setTimeout(() => { console.log('Running setTimeOut cb() fxn.'); navigate('/') }, 0);
         } catch(e) {
             toast.error( e?.response?.data?.message || 'Internal server error.');
         }

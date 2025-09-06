@@ -32,6 +32,9 @@ const Login = () => {
             setIsAuthenticated(true);
             setUser(res.data.user);
             navigate('/dashboard');
+
+            // 1 - changes routes - history.pushState()
+            // 2 - setPathname()
         } catch(e) {
             toast.error(e?.response?.data?.message || 'Internal Server Error.')
         }
